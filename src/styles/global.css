@@ -1,0 +1,160 @@
+:root {
+  /* Light theme */
+  --color-background: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-text: #000000;
+  --color-text-secondary: #666666;
+  --color-primary: #FF6B6B;  /* POP! brand color */
+  --color-primary-dark: #FF5252;  /* Darker shade for hover */
+  --color-secondary: #4ECDC4;  /* Complementary color */
+  --color-accent: #FFE66D;  /* Accent color */
+  --radius-small: 4px;
+  --radius-medium: 8px;
+  --radius-large: 16px;
+  --shadow-small: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-large: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --color-background: #1a1a1a;
+  --color-surface: #2d2d2d;
+  --color-text: #ffffff;
+  --color-text-secondary: #a0a0a0;
+  --color-primary: #FF6B6B;  /* Keeping POP! brand color in dark mode */
+  --color-primary-dark: #FF5252;  /* Darker shade for hover */
+  --color-secondary: #4ECDC4;  /* Complementary color */
+  --color-accent: #FFE66D;  /* Accent color */
+  --shadow-small: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --shadow-large: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: var(--color-background);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Button animations */
+@keyframes buttonHover {
+  0% {
+    transform: perspective(1000px) rotateX(0deg) translateY(0);
+  }
+  100% {
+    transform: perspective(1000px) rotateX(5deg) translateY(-5px);
+  }
+}
+
+@keyframes buttonShine {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover::after {
+  transform: translateX(100%);
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Button styles */
+button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-medium);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Card styles */
+.feature-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-large);
+  padding: 2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-large);
+}
+
+/* Modal styles */
+.modal {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-text-secondary);
+  box-shadow: var(--shadow-medium);
+  border-radius: var(--radius-large);
+}
+
+/* Text styles */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+/* Link styles */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-secondary);
+  text-decoration: underline;
+} 

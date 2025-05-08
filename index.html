@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POP! - AR Virtual Popup Shop</title>
+    <meta name="description" content="Create and explore virtual popup shops in augmented reality" />
+    
+    <!-- WebXR Device API -->
+    <script>
+      if ('xr' in navigator) {
+        navigator.xr.isSessionSupported('immersive-ar')
+          .then((supported) => {
+            if (supported) {
+              console.log('AR is supported on this device');
+            } else {
+              console.log('AR is not supported on this device');
+            }
+          });
+      }
+    </script>
+    
+    <!-- Prevent scrolling on mobile -->
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+      }
+      #root {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html> 
