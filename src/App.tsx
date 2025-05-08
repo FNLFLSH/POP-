@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import { StorePage } from './pages/StorePage';
 import ARStorefront from './scenes/ARStorefront';
 import ThemeToggle from './components/ThemeToggle';
+import MyStore from './pages/MyStore';
 
 // Mock store data
 const mockStore = {
@@ -33,7 +34,7 @@ const App: React.FC = () => {
         <ThemeToggle />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/store" element={<StorePage />} />
+          <Route path="/store" element={<MyStore />} />
           <Route path="/popup" element={<ARStorefront store={mockStore} />} />
           <Route path="/join" element={<div>Join POP Page (Coming Soon)</div>} />
           <Route path="/customize" element={<div>Avatar Customization Page (Coming Soon)</div>} />
